@@ -1,0 +1,95 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  margin: 5%
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title{
+  font-weight: bold;
+}
+
+ul {
+  padding: 0;
+  margin: 0 10% 5% 10% 
+}
+
+li {
+}
+ .choice {
+  display: inline-block;
+ }
+
+a {
+  text-decoration: none;
+}
+p{
+  margin: 2%
+}
+
+.surveys {
+  justify-content: center;
+}
+
+.surveys li {
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button {
+  color: #e6e6e6;
+  background: #0a0a0a;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 200px;
+  text-align: center;
+  display: block;
+  padding: 7px 0;
+  margin: 10px auto;
+}
+
+.next {
+  color: orange;
+  background: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 200px;
+  text-align: center;
+  display: block;
+  padding: 7px 0;
+  margin: 10px auto;
+  display: inline-block;
+  align-self: center;
+}
+
+.button:hover:enabled {
+  background: linear-gradient(#1a1a1a,#0a0a0a);
+  color: #fff;
+  text-decoration: none;
+}
+
+.next:hover:enabled {
+  background: linear-gradient(#1a1a1a,#0a0a0a);
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.next:active {
+  transform: translateY(1px);
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
