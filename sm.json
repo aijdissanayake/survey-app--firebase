@@ -1,0 +1,25 @@
+{
+	"details": 
+	{
+		"current_survey":
+		{
+			"title": ["Please select the area you would like to have the test upon"]
+		},
+
+		"area_titles":
+		[
+			{
+				"title":"Digital Marketing",
+				"active": true
+			},
+			{
+				"title":"UX",
+				"active": true
+			},
+			{
+				"title":"Product Support",
+				"active": true
+			}
+		]
+	}
+}

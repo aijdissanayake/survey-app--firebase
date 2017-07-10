@@ -1,0 +1,353 @@
+{
+	"details": 
+	{
+		"current_survey":
+		{
+			"title": ["Please select the area you would like to have the test upon"]
+		},
+
+		"area_titles":
+		[
+			{
+				"title":"Digital Marketing",
+				"active": true
+			},
+			{
+				"title":"UX",
+				"active": true
+			},
+			{
+				"title":"Product Support",
+				"active": true
+			}
+		],
+
+		"Digital Marketing": 
+		{
+			"active": 
+			{
+				"question_set_no" : 0,
+				"questions": [
+					{
+						"title":"How do you document personas?",
+						"choices": [
+							"on paper",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"How do you do user research?",
+						"choices": [
+							"eye tracking",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"What is the area product related to?",
+						"choices": [
+							"with comments",
+							"digital doc"
+						]
+					}
+				]
+			},
+
+			"quiz_sets" : 
+			[
+				{
+					"question_set_no" : 0,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				},
+				{
+					"question_set_no" : 1,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				}
+			]
+
+		},
+
+		"UX": 
+		{
+			"active": 
+			{
+				"question_set_no" : 0,
+				"questions": [
+					{
+						"title":"How do you document personas?",
+						"choices": [
+							"on paper",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"How do you do user research?",
+						"choices": [
+							"eye tracking",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"What is the area product related to?",
+						"choices": [
+							"with comments",
+							"digital doc"
+						]
+					}
+				]
+			},
+
+			"quiz_sets" : 
+			[
+				{
+					"question_set_no" : 0,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				},
+				{
+					"question_set_no" : 1,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				}
+			]
+
+		},
+
+		"Product Support": 
+		{
+			"active": 
+			{
+				"question_set_no" : 0,
+				"questions": [
+					{
+						"title":"How do you document personas?",
+						"choices": [
+							"on paper",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"How do you do user research?",
+						"choices": [
+							"eye tracking",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"What is the area product related to?",
+						"choices": [
+							"with comments",
+							"digital doc"
+						]
+					}
+				]
+			},
+
+			"quiz_sets" : 
+			[
+				{
+					"question_set_no" : 0,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				},
+				{
+					"question_set_no" : 1,
+					"questions": 
+					[
+						{
+							"title":"How do you document personas?",
+							"choices": [
+								"on paper",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"How do you do user research?",
+							"choices": [
+								"eye tracking",
+								"digital tool",
+								"with customer"
+							]
+						},
+						{
+							"title":"What is the area product related to?",
+							"choices": [
+								"with comments",
+								"digital doc"
+							]
+						}
+					]
+				}
+			]
+
+		}
+	},
+
+	"feedback" : 
+	{
+		"total": 1,
+		"responses": 
+		[
+			{	
+				"title": "Digital Marketing",
+				"response_no": 1,  
+				"question_set_no" : 0,
+				"questions": [
+					{
+						"title":"How do you document personas?",
+						"answers": [
+							"on paper",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"How do you do user research?",
+						"answers": [
+							"eye tracking",
+							"digital tool",
+							"with customer"
+						]
+					},
+					{
+						"title":"What is the area product related to?",
+						"answers": [
+							"with comments",
+							"digital doc"
+						]
+					}
+				]
+			}
+		]
+
+
+	}
+}

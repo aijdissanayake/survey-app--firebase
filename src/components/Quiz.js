@@ -76,10 +76,10 @@ class Quiz extends React.Component {
 		});
 	}
 
-	submitQuiz(title,response){
+	submitQuiz(title,response,quiz){
 		
-		fire.database().ref('messages').push("responsed");
-		api.submitQuiz(title,response);
+		// fire.database().ref('messages').push("responsed");
+		api.submitQuiz(title,response,quiz);
 
 	}
 
@@ -113,7 +113,7 @@ class Quiz extends React.Component {
 				<Question title = {this.state.quiz[this.state.questionNo].title} questionNo = {this.state.questionNo} 
 				choices={choices} onClick = {this.updateChoice} markedPattern = {this.state.markedPattern}/>
 				<Back onClick = {this.previousQuestion}/>
-				<Link to='/'><Submit onClick = {this.submitQuiz.bind(null, this.props.match.params.area, this.state.markedPattern)}/></Link>
+				<Link to='/'><Submit onClick = {this.submitQuiz.bind(null, this.props.match.params.area, this.state.markedPattern, this.state.quiz)}/></Link>
 				<Link className='button' to='/'>Change Area</Link>
 				</div>
 				)
