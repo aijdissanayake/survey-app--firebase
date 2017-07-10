@@ -4,23 +4,30 @@ var axios = require('axios');
 export default {
 
 	fetchSurveys: function() {
-		var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec?noo=nooo");
+		//var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec?noo=nooo");
 		var i = 0;
 
 		var survey = fire.database().ref('survey');
-		survey.on('value', function(snapshot) {
-		  console.log(snapshot);
+		return survey.on('value', function(snapshot) {
+				console.log(snapshot.val());
+				var areas = snapshot.val().areas;
+				var areaTitles = [];
+				for (i = 0; i < areas.length; i++){
+					areaTitles.push(areas[i]['title']);
+				}
+
+				return areaTitles;
 		});
 
-		return axios.get(encodedURI).then(function(response){		
-			var areas = response.data.areas;
-			var areaTitles = [];
-			for (i = 0; i < areas.length; i++){
-				areaTitles.push(areas[i]['title']);
-			}
+		// return axios.get(encodedURI).then(function(response){		
+		// 	var areas = response.data.areas;
+		// 	var areaTitles = [];
+		// 	for (i = 0; i < areas.length; i++){
+		// 		areaTitles.push(areas[i]['title']);
+		// 	}
 
-			return areaTitles;
-		});
+		// 	return areaTitles;
+		// });
 
 	},
 
@@ -71,5 +78,5 @@ export default {
 
 
 
-		}     
-	}
+	}     
+}
