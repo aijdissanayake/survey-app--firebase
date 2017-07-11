@@ -1,0 +1,28 @@
+[debug] [2017-07-10T19:57:40.743Z] ----------------------------------------------------------------------
+[debug] [2017-07-10T19:57:40.746Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\Achala PC\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-07-10T19:57:40.746Z] CLI Version:  3.9.1
+[debug] [2017-07-10T19:57:40.746Z] Platform:     win32
+[debug] [2017-07-10T19:57:40.746Z] Node Version: v6.9.5
+[debug] [2017-07-10T19:57:40.747Z] Time:         Tue Jul 11 2017 01:27:40 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-10T19:57:40.747Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-10T19:57:40.761Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-10T19:57:40.761Z] > authorizing via signed-in user
+[debug] [2017-07-10T19:57:40.763Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-ddf10  
+ Tue Jul 11 2017 01:27:40 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-10T19:57:42.359Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-10T19:57:42.361Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-ddf10/tokens  
+ Tue Jul 11 2017 01:27:42 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-10T19:57:43.375Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Projects\Survey\firebase\test\test'...
+[info] 
+[debug] [2017-07-10T19:57:43.383Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-ddf10  
+ Tue Jul 11 2017 01:27:43 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-10T19:57:44.914Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-10T19:57:44.915Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/676156167175/clients/_:getWebAppConfig  
+ Tue Jul 11 2017 01:27:44 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-10T19:57:45.694Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+

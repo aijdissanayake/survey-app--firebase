@@ -28,13 +28,12 @@ export default {
 
 			dbRef.on('value', function(snapshot) {
 
-				console.log(snapshot.val());
 				var areas = snapshot.val().areas;
 
 				for (i = 0; i < areas.length; i++){
 					areaTitles.push(areas[i]['title']);
 				}
-				console.log(areaTitles);
+
 				resolve(areaTitles);							
 			});
 			
@@ -53,9 +52,7 @@ export default {
 
 			var title = "";
 			var dbRef = fire.database().ref('survey/title').on('value', function(snapshot) {
-				console.log(snapshot.val()); 
 				title = snapshot.val()[0];
-				console.log(title);
 				resolve(title);
 			});
 		});
@@ -70,7 +67,7 @@ export default {
 			var dbRef = fire.database().ref('survey/areas').on('value', function(snapshot) {
 				var i = 0; 
 				var areas = snapshot.val();
-				console.log(snapshot.val());
+
 				for (i = 0; i < areas.length; i++){
 					if (areas[i].title == area) {
 						quiz = areas[i].questions;
@@ -104,13 +101,38 @@ export default {
 
 	submitQuiz: function(title, response,quiz){
 
-		var resp = {};
-		resp["title"] = title;
-		resp["choices"] = response;
-		var resp_str = JSON.stringify(resp);
+		// var resp = {};
+		// resp["title"] = title;
+		// resp["choices"] = response;
+		// var resp_str = JSON.stringify(resp);
 
-		fire.database().ref('responses').push(resp);
+		// fire.database().ref('responses').push(resp);
 		console.log(quiz);
+		var survey_response = {};
+		var resp = [];
+
+		for (var i = 0 ; i < quiz.length ; i++) {
+			
+			var q_object = {}
+			q_object["title"] = quiz[i].title;
+			var answers = {} 
+
+			for (var j = 0 ; j < quiz[i].choices.length ; j++) {
+				answers[quiz[i].choices[j]] = response[i][j];
+			}
+
+			q_object["answers"] = answers;
+			console.log(q_object);
+			resp.push[q_object];
+		}
+		console.log("middle");
+		console.log(resp);
+		survey_response["title"] = title;
+		survey_response["response"] = resp;
+
+		console.log(survey_response);
+
+
 				//fire.database().ref('messages').push( "responsed_api" );
 
 				// var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec?data="+resp_str);
