@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div>
       <Home/>
-      <p> Messages</p>
+      <p> Next Messages</p>
       <form onSubmit={this.addMessage.bind(this)}>
         <input type="text" ref={ el => this.inputEl = el }/>
         <input type="submit"/>
