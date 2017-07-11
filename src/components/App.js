@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import Home from './Home';
+import User from './User';
 //var Home = require('./Home');
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
     return (
       <div>
       <Home/>
+      <User/>
       <p> Next Messages</p>
       <form onSubmit={this.addMessage.bind(this)}>
         <input type="text" ref={ el => this.inputEl = el }/>

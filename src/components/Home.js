@@ -1,7 +1,7 @@
 import Front from './Front';
 import Quiz from './Quiz';
+import User from './User';
 var React = require('react');
-// var Quiz = require('./Quiz');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -12,7 +12,8 @@ class Home extends React.Component {
     return (
     	<Router>
 	      <div className='container'>
-	        <Route exact path = '/' component = {Front}/>
+          <Route exact path = '/' component = {User}/>
+	        <Route path = '/surveys' component = {Front}/>
 	        <Route path = '/:area' component = {Quiz} />
 	      </div>
       </Router>

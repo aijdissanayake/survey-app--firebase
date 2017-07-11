@@ -1,0 +1,28 @@
+[debug] [2017-07-11T12:01:29.079Z] ----------------------------------------------------------------------
+[debug] [2017-07-11T12:01:29.082Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\ACHALAD\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-07-11T12:01:29.082Z] CLI Version:  3.9.1
+[debug] [2017-07-11T12:01:29.082Z] Platform:     win32
+[debug] [2017-07-11T12:01:29.082Z] Node Version: v6.11.0
+[debug] [2017-07-11T12:01:29.083Z] Time:         Tue Jul 11 2017 17:31:29 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T12:01:29.083Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-11T12:01:29.096Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-11T12:01:29.096Z] > authorizing via signed-in user
+[debug] [2017-07-11T12:01:29.098Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-ddf10  
+ Tue Jul 11 2017 17:31:29 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T12:01:30.555Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T12:01:30.555Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-ddf10/tokens  
+ Tue Jul 11 2017 17:31:30 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T12:01:31.687Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\Projects\Survey-firebase\survey-app--firebase'...
+[info] 
+[debug] [2017-07-11T12:01:31.709Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-ddf10  
+ Tue Jul 11 2017 17:31:31 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T12:01:33.276Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T12:01:33.277Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/676156167175/clients/_:getWebAppConfig  
+ Tue Jul 11 2017 17:31:33 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T12:01:34.362Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+

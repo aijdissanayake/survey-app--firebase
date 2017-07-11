@@ -70,7 +70,6 @@ export default {
 			});
 
 		}
-		console.log(questionSetNo);
 
 		getTotal().then(function(tot) { 
 			total = tot;
