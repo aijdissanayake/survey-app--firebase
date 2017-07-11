@@ -9,6 +9,7 @@ class Quiz extends React.Component {
 
 		super(props);
 		this.state = {
+			questionSetNo:0,
 			questionNo: 0,
 			quiz: null,
 			markedPattern: [],
@@ -22,25 +23,31 @@ class Quiz extends React.Component {
 
 	componentDidMount(){
 
-		api.fetchquiz(this.props.match.params.area).then(function(quiz) {
+		api.fetchquiz(this.props.match.params.area).then(function(activeQuiz) {
+
+			var quiz = activeQuiz["questions"];
+
 			this.setState(function() {
 				return {
-					quiz:quiz
+					quiz:quiz,
+					questionSetNo:activeQuiz["question_set_no"]
 				}
 			});
 
-		var markedPattern = [];	
+			console.log(activeQuiz["question_set_no"]);
 
-		for (var i = 0; i <quiz.length ; i++) {
-			var pattern = [];
+			var markedPattern = [];	
 
-			for (var j = 0 ; j < quiz[i].choices.length; j++) {
-				pattern.push(false);
+			for (var i = 0; i <quiz.length ; i++) {
+				var pattern = [];
+
+				for (var j = 0 ; j < quiz[i].choices.length; j++) {
+					pattern.push(false);
+				}
+				markedPattern.push(pattern);
 			}
-			markedPattern.push(pattern);
-		}
 
-		this.setState(function() {
+			this.setState(function() {
 				return {
 					markedPattern:markedPattern
 				}
@@ -52,8 +59,8 @@ class Quiz extends React.Component {
 	}
 
 	updateChoice(e){
-		 var markedPattern = this.state.markedPattern;
-		 markedPattern[this.state.questionNo][e.target.id] = markedPattern[this.state.questionNo][e.target.id] ? false : true ;
+		var markedPattern = this.state.markedPattern;
+		markedPattern[this.state.questionNo][e.target.id] = markedPattern[this.state.questionNo][e.target.id] ? false : true ;
 	}
 
 	nextQuestion(){
@@ -76,10 +83,9 @@ class Quiz extends React.Component {
 		});
 	}
 
-	submitQuiz(title,response,quiz){
+	submitQuiz(title,response,quiz,questionSetNo){
 		
-		// fire.database().ref('messages').push("responsed");
-		api.submitQuiz(title,response,quiz);
+		api.submitQuiz(title,response,quiz,questionSetNo);
 
 	}
 
@@ -97,26 +103,26 @@ class Quiz extends React.Component {
 			var choices = this.state.quiz[this.state.questionNo].choices;
 			if(this.state.questionNo === 0){
 				return (
-				<div>
-				<h1>Survey Quiz</h1>
-				<Question title = {this.state.quiz[this.state.questionNo].title} questionNo = {this.state.questionNo} 
-				choices={choices} onClick = {this.updateChoice} markedPattern = {this.state.markedPattern}/>
-				<Next onClick = {this.nextQuestion}/>
-				<Link className='button' to='/'>Change Area</Link>
-				</div>
-				)
+					<div>
+					<h1>Survey Quiz</h1>
+					<Question title = {this.state.quiz[this.state.questionNo].title} questionNo = {this.state.questionNo} 
+					choices={choices} onClick = {this.updateChoice} markedPattern = {this.state.markedPattern}/>
+					<Next onClick = {this.nextQuestion}/>
+					<Link className='button' to='/'>Change Area</Link>
+					</div>
+					)
 			}
 			else if(this.state.questionNo === this.state.quiz.length - 1){
 				return (
-				<div>
-				<h1>Survey Quiz</h1>
-				<Question title = {this.state.quiz[this.state.questionNo].title} questionNo = {this.state.questionNo} 
-				choices={choices} onClick = {this.updateChoice} markedPattern = {this.state.markedPattern}/>
-				<Back onClick = {this.previousQuestion}/>
-				<Link to='/'><Submit onClick = {this.submitQuiz.bind(null, this.props.match.params.area, this.state.markedPattern, this.state.quiz)}/></Link>
-				<Link className='button' to='/'>Change Area</Link>
-				</div>
-				)
+					<div>
+					<h1>Survey Quiz</h1>
+					<Question title = {this.state.quiz[this.state.questionNo].title} questionNo = {this.state.questionNo} 
+					choices={choices} onClick = {this.updateChoice} markedPattern = {this.state.markedPattern}/>
+					<Back onClick = {this.previousQuestion}/>
+					<Link to='/'><Submit onClick = {this.submitQuiz.bind(null, this.props.match.params.area, this.state.markedPattern, this.state.quiz, this.state.questionSetNo)}/></Link>
+					<Link className='button' to='/'>Change Area</Link>
+					</div>
+					)
 
 			}
 			else{
@@ -145,13 +151,13 @@ function Question (props){
 		{props.choices.map(function(choice, index){
 			var key = index.toString() +  props.questionNo.toString()
 			return(
-					<li key={key} >
-					{props.markedPattern[props.questionNo][index]? 
+				<li key={key} >
+				{props.markedPattern[props.questionNo][index]? 
 					<input id = {index} onChange = {props.onClick} className ='choice' type="checkbox" name="test" value="test" checked/>
 					: <input id = {index} onChange = {props.onClick} className ='choice' type="checkbox" name="test" value="test" /> }
 					<div className ='choice' >{choice} </div>
 					</li>
-				)
+					)
 			
 		})}
 		</ol>

@@ -3,37 +3,23 @@ var axios = require('axios');
 
 export default {
 
-	// fetchSurveys: function() {
-	// 	var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec?noo=nooo");
-	// 	var i = 0;
-	// 	return axios.get(encodedURI).then(function(response){		
-	// 		var areas = response.data.areas;
-	// 		var areaTitles = [];
-	// 		for (i = 0; i < areas.length; i++){
-	// 			areaTitles.push(areas[i]['title']);
-	// 		}
-
-	// 		return areaTitles;
-	// 	});
-
-	// },
-
 	fetchSurveys: function() {
 
 		return new Promise((resolve, reject) => {
 
-			var dbRef = fire.database().ref('survey');
+			var dbRef = fire.database().ref('survey_details/area_titles');
 			var i = 0;
 			var areaTitles = [];
 
 			dbRef.on('value', function(snapshot) {
 
-				var areas = snapshot.val().areas;
+				var allAreas = snapshot.val();
 
-				for (i = 0; i < areas.length; i++){
-					areaTitles.push(areas[i]['title']);
+				for (i = 0; i < allAreas.length; i++){
+					if(allAreas[i]["active"]){
+						areaTitles.push(allAreas[i]['title']);
+					}					
 				}
-
 				resolve(areaTitles);							
 			});
 			
@@ -43,16 +29,11 @@ export default {
 
 	fetchtitle: function() {
 
-		// var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec");
-
-		// return axios.get(encodedURI).then(function(response){
-		// 	return response.data.title[0];
-		// });
 		return new Promise((resolve, reject) => {
 
 			var title = "";
-			var dbRef = fire.database().ref('survey/title').on('value', function(snapshot) {
-				title = snapshot.val()[0];
+			var dbRef = fire.database().ref('survey_details/current_survey/title').on('value', function(snapshot) {
+				title = snapshot.val();
 				resolve(title);
 			});
 		});
@@ -64,86 +45,67 @@ export default {
 		return new Promise((resolve, reject) => {
 
 			var quiz = "";
-			var dbRef = fire.database().ref('survey/areas').on('value', function(snapshot) {
-				var i = 0; 
-				var areas = snapshot.val();
-
-				for (i = 0; i < areas.length; i++){
-					if (areas[i].title == area) {
-						quiz = areas[i].questions;
-					}
-				}
-				resolve(quiz);
+			var dbRef = fire.database().ref('survey_details/'+area+'/active')
+			dbRef.on('value', function(snapshot) {
+				var activeQuiz = snapshot.val();
+				resolve(activeQuiz);
 			});
 			
 		});
 
 	},
 
-	// var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec");
-	// var i = 0;
+	submitQuiz: function(title, response,quiz,questionSetNo){
 
+		var total = 5 ;
 
+		var db =  fire.database().ref('responses_details/total');
 
-	// return axios.get(encodedURI).then(function(response){
-	// 	var areas = response.data.areas;
-	// 	var quiz= null;
-	// 	for (i = 0; i < areas.length; i++){
-	// 		if (areas[i].title == area) {
-	// 			quiz = areas[i].questions;
-	// 		}
-	// 	}
+		var getTotal = function() {
 
-	// 	return quiz;
-	// });
+			return new Promise((resolve, reject) => {
+				db.on('value', function(snapshot) {
+					resolve(Number(snapshot.val()));
+				});
+			});
 
-// },
+		}
+		console.log(questionSetNo);
 
-	submitQuiz: function(title, response,quiz){
+		getTotal().then(function(tot) { 
+			total = tot;
+			var survey_response = {};
+			var q_with_a = [];
 
-		// var resp = {};
-		// resp["title"] = title;
-		// resp["choices"] = response;
-		// var resp_str = JSON.stringify(resp);
+			for (var i = 0 ; i < quiz.length ; i++) {
+				var q_object = {}
+				q_object["title"] = quiz[i].title;
+				var answers = {} 
 
-		// fire.database().ref('responses').push(resp);
-		console.log(quiz);
-		var survey_response = {};
-		var resp = [];
+				for (var j = 0 ; j < quiz[i].choices.length ; j++) {
+					answers[quiz[i].choices[j]] = response[i][j];
+				}
 
-		for (var i = 0 ; i < quiz.length ; i++) {
-			
-			var q_object = {}
-			q_object["title"] = quiz[i].title;
-			var answers = {} 
+				q_object["answers"] = answers;
 
-			for (var j = 0 ; j < quiz[i].choices.length ; j++) {
-				answers[quiz[i].choices[j]] = response[i][j];
+				q_with_a.push(q_object);
 			}
 
-			q_object["answers"] = answers;
-			console.log(q_object);
-			resp.push[q_object];
-		}
-		console.log("middle");
-		console.log(resp);
-		survey_response["title"] = title;
-		survey_response["response"] = resp;
+			var response_no = total + 1;
+			survey_response["response_no"] = response_no;
+			survey_response["title"] = title;
+			survey_response["question_set_no"] = questionSetNo;
+			survey_response["response"] = q_with_a;
 
-		console.log(survey_response);
+			console.log(survey_response);
 
 
-				//fire.database().ref('messages').push( "responsed_api" );
-
-				// var encodedURI = window.encodeURI("https://script.google.com/macros/s/AKfycbySehYgZd1ftj316wdNYQCchQ8GtTUZaTzQsmroosPX0kLY050/exec?data="+resp_str);
-				// var i = 0;
-
-			// return axios.get(encodedURI).then(function(response){})
-			// .catch(function (error) {
-			// 	console.log(error);
-			// });
+			fire.database().ref('responses_details/total').set(response_no);
+			fire.database().ref('responses_details/responses/'+response_no).set(survey_response);
 
 
+		});
 
+		
 	}     
 }
