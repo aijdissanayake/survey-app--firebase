@@ -10,16 +10,25 @@ const mailTransport = nodemailer.createTransport(
     `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
 // Sends an email when a user responded for confirmation.
-exports.sendEmailConfirmation = functions.database.ref('responses_details/responses/{response_no}/user').onWrite(event => {
+exports.sendEmailConfirmation = functions.database.ref('responses_details/responses/{response_no}').onWrite(event => {
   const snapshot = event.data;
   const val = snapshot.val();
   const mailOptions = {
     from: '"99X Technology" <noreply@firebase.com>',
-    to: val.email
+    to: val.user.email
   };
 
+  // var response = []; 
+  // for (var i = 0; i < val.response.length; i++) {
+  // 	var question = val.response[i];
+  // }
+
+  const text = "Hi! " + val.user.name + ", \n Thanks you for the response.  The saved response is \n " +
+   JSON.stringify(val.response, null, 2).replace(/[&\/\\#,\[\]+()$~%.'"*?<>{}]/g, '') + 
+   " \n Save another response at: https://test-ddf10.firebaseapp.com/"; 
+
     mailOptions.subject = 'You response was saved!';
-    mailOptions.text = 'Thanks you for the response. We will consider all these .';
+    mailOptions.text = text;
     return mailTransport.sendMail(mailOptions).then(() => {
       console.log('New subscription confirmation email sent to:', val.email);
     }).catch(error => {
