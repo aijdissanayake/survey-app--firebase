@@ -1,5 +1,6 @@
 import api from '../utils/api';
 var React = require('react');
+var Global = require('react-global');
 var PropTypes = require('prop-types');
 var Link = require('react-router-dom').Link;
 
@@ -18,7 +19,7 @@ class Front extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log(this.props.route.user);
+
 		api.fetchtitle().then(function(title) {
 
 			this.setState(function() {

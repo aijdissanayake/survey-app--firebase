@@ -1,6 +1,7 @@
 import fire from './fire';
 import api from '../utils/api';
 var React = require('react');
+var Global = require('react-global');
 var Link = require('react-router-dom').Link;
 
 class Quiz extends React.Component {
@@ -22,7 +23,6 @@ class Quiz extends React.Component {
 	}
 
 	componentDidMount(){
-
 		api.fetchquiz(this.props.match.params.area).then(function(activeQuiz) {
 
 			var quiz = activeQuiz["questions"];
@@ -33,8 +33,6 @@ class Quiz extends React.Component {
 					questionSetNo:activeQuiz["question_set_no"]
 				}
 			});
-
-			console.log(activeQuiz["question_set_no"]);
 
 			var markedPattern = [];	
 

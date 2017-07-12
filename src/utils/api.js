@@ -95,6 +95,7 @@ export default {
 			survey_response["title"] = title;
 			survey_response["question_set_no"] = questionSetNo;
 			survey_response["response"] = q_with_a;
+			survey_response["user"] = window.user;
 
 			console.log(survey_response);
 
