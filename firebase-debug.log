@@ -1,28 +1,36 @@
-[debug] [2017-07-11T12:01:29.079Z] ----------------------------------------------------------------------
-[debug] [2017-07-11T12:01:29.082Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\ACHALAD\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] [2017-07-11T12:01:29.082Z] CLI Version:  3.9.1
-[debug] [2017-07-11T12:01:29.082Z] Platform:     win32
-[debug] [2017-07-11T12:01:29.082Z] Node Version: v6.11.0
-[debug] [2017-07-11T12:01:29.083Z] Time:         Tue Jul 11 2017 17:31:29 GMT+0530 (Sri Lanka Standard Time)
-[debug] [2017-07-11T12:01:29.083Z] ----------------------------------------------------------------------
+[debug] [2017-07-11T21:36:01.752Z] ----------------------------------------------------------------------
+[debug] [2017-07-11T21:36:01.755Z] Command:      C:\Program Files\nodejs\node.exe C:\Users\Achala PC\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-07-11T21:36:01.755Z] CLI Version:  3.9.1
+[debug] [2017-07-11T21:36:01.755Z] Platform:     win32
+[debug] [2017-07-11T21:36:01.755Z] Node Version: v6.9.5
+[debug] [2017-07-11T21:36:01.756Z] Time:         Wed Jul 12 2017 03:06:01 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:01.756Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-07-11T12:01:29.096Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-07-11T12:01:29.096Z] > authorizing via signed-in user
-[debug] [2017-07-11T12:01:29.098Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-ddf10  
- Tue Jul 11 2017 17:31:29 GMT+0530 (Sri Lanka Standard Time)
-[debug] [2017-07-11T12:01:30.555Z] <<< HTTP RESPONSE 200
-[debug] [2017-07-11T12:01:30.555Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-ddf10/tokens  
- Tue Jul 11 2017 17:31:30 GMT+0530 (Sri Lanka Standard Time)
-[debug] [2017-07-11T12:01:31.687Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T21:36:01.770Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-11T21:36:01.770Z] > authorizing via signed-in user
+[debug] [2017-07-11T21:36:01.772Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-07-11T21:36:01.772Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/UAQRIteku7pLxuu8Ns-CZw600oE2wLrpSQA1ZjlNDYc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jul 12 2017 03:06:01 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:02.302Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T21:36:02.365Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-ddf10  
+ Wed Jul 12 2017 03:06:02 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:03.938Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T21:36:03.939Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-ddf10/tokens  
+ Wed Jul 12 2017 03:06:03 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:05.000Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Serving from 'E:\Projects\Survey-firebase\survey-app--firebase'...
+[info] === Serving from 'D:\Projects\Survey\firebase\test\test'...
 [info] 
-[debug] [2017-07-11T12:01:31.709Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-ddf10  
- Tue Jul 11 2017 17:31:31 GMT+0530 (Sri Lanka Standard Time)
-[debug] [2017-07-11T12:01:33.276Z] <<< HTTP RESPONSE 200
-[debug] [2017-07-11T12:01:33.277Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/676156167175/clients/_:getWebAppConfig  
- Tue Jul 11 2017 17:31:33 GMT+0530 (Sri Lanka Standard Time)
-[debug] [2017-07-11T12:01:34.362Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T21:36:05.003Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-ddf10  
+ Wed Jul 12 2017 03:06:05 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:06.619Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-11T21:36:06.620Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/676156167175/clients/_:getWebAppConfig  
+ Wed Jul 12 2017 03:06:06 GMT+0530 (Sri Lanka Standard Time)
+[debug] [2017-07-11T21:36:07.677Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: build
 [info] +  hosting: Local server: http://localhost:5000
 

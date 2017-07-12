@@ -18,7 +18,7 @@ class Front extends React.Component {
 	}
 
 	componentDidMount(){
-
+		console.log(this.props.route.user);
 		api.fetchtitle().then(function(title) {
 
 			this.setState(function() {
@@ -83,7 +83,7 @@ class Front extends React.Component {
 // rendering stateless components
 
 function AreaDesc (props){
-	var url = "/" + props.selectedAreaTitle;
+	var url = "/survey/" + props.selectedAreaTitle;
 	return (
 		<div className = 'surveys' >
 		<h3> Area Description Goes Here</h3>

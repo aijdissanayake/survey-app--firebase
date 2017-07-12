@@ -13,8 +13,8 @@ class Home extends React.Component {
     	<Router>
 	      <div className='container'>
           <Route exact path = '/' component = {User}/>
-	        <Route path = '/surveys' component = {Front}/>
-	        <Route path = '/:area' component = {Quiz} />
+	        <Route exact path = '/surveys' component = {Front}/>
+	        <Route exact path = '/survey/:area' component = {Quiz} />
 	      </div>
       </Router>
     )
